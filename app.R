@@ -62,7 +62,7 @@ server <- function(session,input,output) {
   # Fonte: https://github.com/CleitonOERocha/Shapefiles 
   salvador_bairros <- geojson_read("Bairros_Salvador.json", what = "sp")
   
-  # Faz a padronização e une com os dados da prefeitura
+  # Faz a padronização e junta com os dados da prefeitura
   bairros <- padronizar(salvador_bairros$nome)
   mapa <- data.frame(BAIRRO=bairros)
   tabela$BAIRRO <- padronizar(tabela$BAIRRO)
