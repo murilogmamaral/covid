@@ -25,13 +25,18 @@ limpar <- function(x) {
 }
 
 ui <- fluidPage(
+  tags$head(tags$script(src="retrair.js")),
   tags$style("body {background-color:#d5dadc;}"),
   tags$style(type = "text/css", ".container-fluid {padding-left:0px;padding-right:0px;}"),
   leafletOutput("mapa",height = "100vh"),
-  div(style="top:10px;right:10px;z-index:1001;position:absolute;",
-      actionButton("mudar","mudar")),
+  div(style="top:10px;right:10px;z-index:1001;position:absolute;
+             font-size:10px;text-align:right;padding: 0px;",
+      htmlOutput("legenda"),
+      actionLink("mudar","mudar")),
 )
 server <- function(session,input,output) {
+  
+  output$legenda <- renderText("<b>coeficiente de incidência</b>")
   
   # Atualiza os dados da prefeitura a cada 24h
   marcador <- read.csv("marcador.csv")
@@ -89,18 +94,26 @@ server <- function(session,input,output) {
     leaflet(salvador_bairros,options = leafletOptions(zoomControl = FALSE)) %>% 
     addProviderTiles(providers$CartoDB.Positron) %>%
     addControl(paste(#"<b>Salvador, Bahia</b><br>",
-                     "<span style='font-size:12px;'><b>Habitantes:</b>", f(sum(salvador_bairros$populacao,na.rm=T)),
-                     "<br><b>Casos confirmados:</b>", f(obitos$CONFIRMADO[length(obitos$CONFIRMADO)]),
+                     "<span style='font-size:11px;'>",
+                     "<div id='toggleText' style='display: block'>",
+                     "<b>Habitantes:</b>", f(sum(salvador_bairros$populacao,na.rm=T)),
+                     "<br><b>Casos confirmados:</b>",
+                     f(obitos$CONFIRMADO[length(obitos$CONFIRMADO)]),
                      "<br><b>Curados:</b>", f(obitos$CURADO[length(obitos$CURADO)]),
-                     "<br><b>Percentual de curados:</b>",paste0(round(obitos$CURADO[length(obitos$CURADO)]/obitos$CONFIRMADO[length(obitos$CONFIRMADO)],2)*100,"%"),
-                     "<br><b>Óbitos:</b>", f(obitos$OBITO[length(obitos$OBITO)]),
+                     "<br><b>Percentual de curados:</b>",
+                     paste0(round(obitos$CURADO[length(obitos$CURADO)]/obitos$CONFIRMADO[length(obitos$CONFIRMADO)],2)*100,"%"),
+                     "<br><b>Óbitos:</b>",
+                     f(obitos$OBITO[length(obitos$OBITO)]),
                      "<br><b>Ocupação de leitos:</b>",
                      "<br> • UTI adulto:", paste(f(ocupado_adulto),"de",f(total_adulto),paste0("(",round(ocupado_adulto/total_adulto,2)*100,"%)")),
                      "<br> • UTI criança:",paste(f(ocupado_crianca),"de",f(total_crianca),paste0("(",round(ocupado_crianca/total_crianca,2)*100,"%)")),
-                     "<br><span style='font-size:10px;font-style:italic;'>Atualizado em",obitos$DATA[length(obitos$DATA)],"</span>",
-                     "</span>"),position = "topleft") %>%
+                     "<br><span style='font-size:10px;font-style:italic;'>Atualizado em",
+                     obitos$DATA[length(obitos$DATA)],"</span>",
+                     "</span></div>",
+                     "<a id='displayText' href='javascript:toggle();'>esconder</a>"),position = "topleft") %>%
     addControl("<span style='font-size:10px;'>
-               Desenvolvido por <a href='https://github.com/murilogmamaral' target='_blank' style='margin-top:3px;'>murilogmamaral</a></span>",position = "topleft")
+               Desenvolvido por <a href='https://github.com/murilogmamaral'
+               target='_blank' style='margin-top:3px;'>murilogmamaral</a></span>",position = "bottomleft")
 
   plotar1 <- function(){
     maximo <- round(max(salvador_bairros$incidencia,na.rm = T))
@@ -124,9 +137,11 @@ server <- function(session,input,output) {
   
   observeEvent(input$mudar,{
     if (input$mudar%%2==0) {
+      output$legenda <- renderText("<b>coeficiente de incidência</b>")
       plotar1()
     }
     else {
+      output$legenda <- renderText("<b>percentual de curados</b>")
       pal <- colorNumeric(colorRamp(c("green",rep("yellow2",2),rep("red3",10))),0:50)
       output$mapa <- renderLeaflet({
         p %>%
