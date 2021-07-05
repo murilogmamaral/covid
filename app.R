@@ -1,28 +1,22 @@
 library(shiny)
 library(leaflet)
 library(dplyr)
+library(stringi)
 library(curl)
 library(geojsonio)
 
 options(scipen = 999)
 
-f <- function(x){formatC(as.numeric(x), format="f", digits=0, big.mark=".",decimal.mark = ",")}
+f <- function(x) {
+  formatC(as.numeric(x), format="f", digits=0, big.mark=".",decimal.mark = ",")
+  }
 
-limpar <- function(x) {
-  resultado <- gsub("Á","A",x)
-  resultado <- gsub("á","a",resultado)
-  resultado <- gsub("é","e",resultado)
-  resultado <- gsub("í","i",resultado)
-  resultado <- gsub("ó","o",resultado)
-  resultado <- gsub("ú","u",resultado)
-  resultado <- gsub("á","a",resultado)
-  resultado <- gsub("á","a",resultado)
-  resultado <- gsub("ã","a",resultado)
-  resultado <- gsub("ô","o",resultado)
-  resultado <- gsub("ç","c",resultado)
-  resultado <- gsub("Caixa D´Agua","Caixa D'Agua",resultado)
+padronizar <- function(x) {
+  resultado <- stri_trans_general(x, "Latin-ASCII")
+  resultado <- toupper(resultado)
+  resultado <- gsub("´","'",resultado)
   resultado
-}
+  }
 
 ui <- fluidPage(
   tags$head(tags$script(src="retrair.js")),
@@ -30,13 +24,14 @@ ui <- fluidPage(
   tags$style(type = "text/css", ".container-fluid {padding-left:0px;padding-right:0px;}"),
   leafletOutput("mapa",height = "100vh"),
   div(style="top:10px;right:10px;z-index:1001;position:absolute;
-             font-size:10px;text-align:right;padding: 0px;",
+             font-size:11px;text-align:right;padding:0px;",
       htmlOutput("legenda"),
       actionLink("mudar","mudar")),
 )
+
 server <- function(session,input,output) {
   
-  output$legenda <- renderText("<b>coeficiente de incidência</b>")
+  output$legenda <- renderText("<b>percentual de casos</b>")
   
   # Atualiza os dados da prefeitura a cada 24h
   marcador <- read.csv("marcador.csv")
@@ -62,22 +57,21 @@ server <- function(session,input,output) {
   leitos <- read.csv("leitos.csv")
   obitos <- read.csv("obitos.csv")
   tabela <- read.csv("tabela.csv")
-  tabela <- tabela %>% mutate(N_RECUPERADOS=((CASOS_CONFIRMADOS-RECUPERADOS)/POPULACAO)*10^3)
-  
+
   # Carrega as delimitações dos bairros
   # Fonte: https://github.com/CleitonOERocha/Shapefiles 
   salvador_bairros <- geojson_read("Bairros_Salvador.json", what = "sp")
   
   # Faz a limpeza/tratamento e une com os dados da prefeitura
-  bairros <- limpar(salvador_bairros$nome)
+  bairros <- padronizar(salvador_bairros$nome)
   mapa <- data.frame(BAIRRO=bairros)
+  tabela$BAIRRO <- padronizar(tabela$BAIRRO)
   mapa <- left_join(mapa,tabela)
   salvador_bairros@data[["populacao"]] <- mapa$POPULACAO
   salvador_bairros@data[["incidencia"]] <- mapa$COEFICIENTE_INCIDENCIA
   salvador_bairros@data[["confirmados"]] <- mapa$CASOS_CONFIRMADOS
   salvador_bairros@data[["recuperados"]] <- mapa$RECUPERADOS
-  salvador_bairros@data[["n_recuperados"]] <- mapa$N_RECUPERADOS
-  
+
   showModal(modalDialog(
     title = "Covid-19 em Salvador",
     paste0("Este app traz dados atualizados da Covid-19 em Salvador, Bahia.
@@ -97,12 +91,13 @@ server <- function(session,input,output) {
     leaflet(salvador_bairros,options = leafletOptions(zoomControl = FALSE)) %>% 
     addProviderTiles(providers$CartoDB.Positron) %>%
     addControl(paste(#"<b>Salvador, Bahia</b><br>",
-                     "<span style='font-size:11px;'>",
-                     "<div id='toggleText' style='display: block'>",
-                     "<b>Habitantes:</b>", f(sum(salvador_bairros$populacao,na.rm=T)),
+                     "<span style='font-size:11px;'>","<div id='toggleText' style='display: block'>",
+                     "<b>Habitantes:</b>",
+                     f(sum(salvador_bairros$populacao,na.rm=T)),
                      "<br><b>Casos confirmados:</b>",
                      f(obitos$CONFIRMADO[length(obitos$CONFIRMADO)]),
-                     "<br><b>Curados:</b>", f(obitos$CURADO[length(obitos$CURADO)]),
+                     "<br><b>Curados:</b>",
+                     f(obitos$CURADO[length(obitos$CURADO)]),
                      "<br><b>Percentual de curados:</b>",
                      paste0(round(obitos$CURADO[length(obitos$CURADO)]/obitos$CONFIRMADO[length(obitos$CONFIRMADO)],2)*100,"%"),
                      "<br><b>Óbitos:</b>",
@@ -110,8 +105,8 @@ server <- function(session,input,output) {
                      "<br><b>Ocupação de leitos:</b>",
                      "<br> • UTI adulto:", paste(f(ocupado_adulto),"de",f(total_adulto),paste0("(",round(ocupado_adulto/total_adulto,2)*100,"%)")),
                      "<br> • UTI criança:",paste(f(ocupado_crianca),"de",f(total_crianca),paste0("(",round(ocupado_crianca/total_crianca,2)*100,"%)")),
-                     "<br><span style='font-size:10px;font-style:italic;'>Atualizado em",
-                     obitos$DATA[length(obitos$DATA)],"</span>",
+                     "<br><span style='font-size:11px;font-style:italic;'>Atualizado em",
+                     obitos$DATA[length(obitos$DATA)],"<br>com dados da SMS</span>",
                      "</span></div>",
                      "<a id='displayText' href='javascript:toggle();'>esconder</a>"),position = "topleft") %>%
     addControl("<span style='font-size:10px;'>
@@ -128,19 +123,18 @@ server <- function(session,input,output) {
                     weight = 1,
                     fillColor = ~pal(round(incidencia)),
                     popup = ~paste0("<b>",nome,"</b><br>",
-                                    "• Coeficiente de incidência:<br>",
-                                    "&nbsp;&nbsp;",round(incidencia)," por 1000 habitantes<br>",
+                                    "• Percentual de casos: ",
+                                    round(confirmados/populacao,4)*100,"%<br>",
                                     "<span style='font-size:12px;color:gray;'>",
                                     "• ",populacao," habitantes<br>",
-                                    "• ",confirmados," casos confirmados<br>",
-                                    "• ",recuperados," curados<br></span>"))
+                                    "• ",confirmados," casos confirmados<br>"))
     })
   }
   plotar1()
   
   observeEvent(input$mudar,{
     if (input$mudar%%2==0) {
-      output$legenda <- renderText("<b>coeficiente de incidência</b>")
+      output$legenda <- renderText("<b>percentual de casos</b>")
       plotar1()
     }
     else {
@@ -154,9 +148,8 @@ server <- function(session,input,output) {
                       fillColor = ~pal(100-(round(recuperados/confirmados,2)*100)),
                       popup = ~paste0("<b>",nome,"</b><br>",
                                       "• Percentual de curados: ",
-                                      round(recuperados/confirmados,2)*100,"%<br>",
+                                      round(recuperados/confirmados,4)*100,"%<br>",
                                       "<span style='font-size:12px;color:gray;'>",
-                                      "• ",populacao," habitantes<br>",
                                       "• ",confirmados," casos confirmados<br>",
                                       "• ",recuperados," curados<br></span>"))
 
