@@ -64,9 +64,11 @@ server <- function(session,input,output) {
   tabela <- read.csv("tabela.csv")
   tabela <- tabela %>% mutate(N_RECUPERADOS=((CASOS_CONFIRMADOS-RECUPERADOS)/POPULACAO)*10^3)
   
-  # Carrega as delimitações dos bairros e une com os dados da prefeitura
+  # Carrega as delimitações dos bairros
   # Fonte: https://github.com/CleitonOERocha/Shapefiles
   salvador_bairros <- geojson_read("Bairros_Salvador.json", what = "sp")
+  
+  # Faz a limpeza/tratamento e une com os dados da prefeitura
   bairros <- limpar(salvador_bairros$nome)
   mapa <- data.frame(BAIRRO=bairros)
   mapa <- left_join(mapa,tabela)
