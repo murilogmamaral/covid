@@ -81,7 +81,6 @@ server <- function(session,input,output) {
   
   ocupado_adulto <- leitos$OCUP_UTI_ADULTO[length(leitos$OCUP_UTI_ADULTO)]
   total_adulto <- leitos$DISP_UTI_ADULTO[length(leitos$DISP_UTI_ADULTO)]
-  
   ocupado_crianca <- leitos$OCUP_UTI_PEDIATRICO[length(leitos$OCUP_UTI_PEDIATRICO)]
   total_crianca <- leitos$DISP_UTI_PEDIATRICO[length(leitos$DISP_UTI_PEDIATRICO)]
 
@@ -130,10 +129,9 @@ server <- function(session,input,output) {
         addLegend(pal = pal, title = "<b>percentual<br>de casos</b>",
                   values = ~(percentual[!is.na(percentual)]),
                   opacity = 0.6,position = "topleft",
-                  labFormat = labelFormat(suffix = "%")
-        )    })
+                  labFormat = labelFormat(suffix = "%"))
+      })
   }
-  
   plotar1()
   
   observeEvent(input$mudar,{
@@ -159,8 +157,7 @@ server <- function(session,input,output) {
           addLegend(pal = pal, title = "<b>percentual<br>de curados</b> ",bins = 5,
                     values = ~(percentual[!is.na(percentual)]),
                     opacity = 0.6,position = "topleft",
-                    labFormat = labelFormat(suffix = "%")
-                    )
+                    labFormat = labelFormat(suffix = "%"))
       })
     }
   })
