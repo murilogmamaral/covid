@@ -20,18 +20,16 @@ padronizar <- function(x) {
 
 ui <- fluidPage(
   tags$head(tags$script(src="retrair.js")),
-  tags$style("body {background-color:#d5dadc;}"),
+  tags$style("body {background-color:#d5dadc;}
+             .leaflet .legend {line-height: 18px;font-size: 10px;}"),
   tags$style(type = "text/css", ".container-fluid {padding-left:0px;padding-right:0px;}"),
   leafletOutput("mapa",height = "100vh"),
   div(style="top:10px;right:10px;z-index:1001;position:absolute;
              font-size:11px;text-align:right;padding:0px;",
-      htmlOutput("legenda"),
-      actionLink("mudar","mudar")),
+      actionButton("mudar","mudar")),
 )
 
 server <- function(session,input,output) {
-  
-  output$legenda <- renderText("<b>percentual de casos</b>")
   
   # Atualiza os dados da prefeitura a cada 24h
   marcador <- read.csv("marcador.csv")
@@ -114,45 +112,55 @@ server <- function(session,input,output) {
                target='_blank' style='margin-top:3px;'>murilogmamaral</a></span>",position = "bottomleft")
 
   plotar1 <- function(){
-    maximo <- round(max(salvador_bairros$incidencia,na.rm = T))
-    pal <- colorNumeric(colorRamp(c("white","red3")), 0:max(600,maximo))
+    pal <- colorNumeric(colorRamp(c("white","red3","red3")), 0:100)
+    percentual <- round(salvador_bairros$confirmados/salvador_bairros$populacao,2)*100
     output$mapa <- renderLeaflet({
       p %>%
         addPolygons(stroke = T,fillOpacity = 0.6,
                     color = "black",
                     weight = 1,
-                    fillColor = ~pal(round(incidencia)),
+                    fillColor = ~pal(round(percentual)),
                     popup = ~paste0("<b>",nome,"</b><br>",
                                     "• Percentual de casos: ",
                                     round(confirmados/populacao,4)*100,"%<br>",
                                     "<span style='font-size:12px;color:gray;'>",
                                     "• ",populacao," habitantes<br>",
-                                    "• ",confirmados," casos confirmados<br>"))
-    })
+                                    "• ",confirmados," casos confirmados<br>"),
+                    highlightOptions = highlightOptions(stroke = 4, weight = 4)) %>%
+        addLegend(pal = pal, title = "<b>percentual<br>de casos</b>",
+                  values = ~(percentual[!is.na(percentual)]),
+                  opacity = 0.6,position = "topleft",
+                  labFormat = labelFormat(suffix = "%")
+        )    })
   }
+  
   plotar1()
   
   observeEvent(input$mudar,{
     if (input$mudar%%2==0) {
-      output$legenda <- renderText("<b>percentual de casos</b>")
       plotar1()
     }
     else {
-      output$legenda <- renderText("<b>percentual de curados</b>")
-      pal <- colorNumeric(colorRamp(c("green",rep("yellow2",2),rep("red3",10))),0:50)
+      pal <- colorNumeric(colorRamp(c(rep("red3",45),rep("yellow2",3),rep("green",2))),0:100)
+      percentual <- round(salvador_bairros$recuperados/salvador_bairros$confirmados,2)*100
       output$mapa <- renderLeaflet({
         p %>%
           addPolygons(stroke = T,fillOpacity = 0.6,
                       color = "black",
                       weight = 1,
-                      fillColor = ~pal(100-(round(recuperados/confirmados,2)*100)),
+                      fillColor = ~pal(percentual),
                       popup = ~paste0("<b>",nome,"</b><br>",
                                       "• Percentual de curados: ",
                                       round(recuperados/confirmados,4)*100,"%<br>",
                                       "<span style='font-size:12px;color:gray;'>",
                                       "• ",confirmados," casos confirmados<br>",
-                                      "• ",recuperados," curados<br></span>"))
-
+                                      "• ",recuperados," curados<br></span>"),
+                      highlightOptions = highlightOptions(stroke = 4, weight = 4)) %>%
+          addLegend(pal = pal, title = "<b>percentual<br>de curados</b> ",bins = 5,
+                    values = ~(percentual[!is.na(percentual)]),
+                    opacity = 0.6,position = "topleft",
+                    labFormat = labelFormat(suffix = "%")
+                    )
       })
     }
   })
