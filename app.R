@@ -139,7 +139,7 @@ server <- function(session,input,output) {
       plotar1()
     }
     else {
-      pal <- colorNumeric(colorRamp(c(rep("red3",45),rep("yellow2",3),rep("green",2))),0:100)
+      pal <- colorNumeric(colorRamp(c(rep("red3",42),rep("orangered3",3),rep("yellow2",3),"lightgreen","green")),0:100)
       percentual <- round(salvador_bairros$recuperados/salvador_bairros$confirmados,2)*100
       output$mapa <- renderLeaflet({
         p %>%
