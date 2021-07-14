@@ -111,8 +111,8 @@ server <- function(session,input,output) {
                target='_blank' style='margin-top:3px;'>murilogmamaral</a></span>",position = "bottomleft")
 
   plotar1 <- function(){
-    pal <- colorNumeric(colorRamp(c("white","red3","red3")), 0:100)
-    percentual <- round(salvador_bairros$confirmados/salvador_bairros$populacao,2)*100
+    pal <- colorNumeric(colorRamp(c("white",rep("red3",2))),seq(0,100,0.01))
+    percentual <- round(salvador_bairros$confirmados/salvador_bairros$populacao,4)*100
     output$mapa <- renderLeaflet({
       p %>%
         addPolygons(stroke = T,fillOpacity = 0.6,
@@ -139,8 +139,8 @@ server <- function(session,input,output) {
       plotar1()
     }
     else {
-      pal <- colorNumeric(colorRamp(c(rep("red3",42),rep("orangered3",3),rep("yellow2",3),"lightgreen","green")),0:100)
-      percentual <- round(salvador_bairros$recuperados/salvador_bairros$confirmados,2)*100
+      pal <- colorNumeric(colorRamp(c(rep("red3",42),rep("orangered3",3),rep("yellow2",3),rep("green",2))),seq(0,100,0.01))
+      percentual <- round(salvador_bairros$recuperados/salvador_bairros$confirmados,4)*100
       output$mapa <- renderLeaflet({
         p %>%
           addPolygons(stroke = T,fillOpacity = 0.6,
@@ -163,4 +163,4 @@ server <- function(session,input,output) {
   })
 }
 
-shinyApp(ui,server) 
+shinyApp(ui,server)

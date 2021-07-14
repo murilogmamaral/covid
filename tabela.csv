@@ -1,169 +1,169 @@
 BAIRRO,CASOS_CONFIRMADOS,COEFICIENTE_INCIDENCIA,POPULACAO,RECUPERADOS
-Acupe,1068,95.25,11213,1025
+Acupe,1072,95.60,11213,1033
 Aeroporto,16,,,15
-"Aguas Claras",2910,78.59,37029,2779
+"Aguas Claras",2922,78.91,37029,2785
 "Alto da Terezinha",325,23.20,14010,311
-"Alto das Pombas",516,134.97,3823,503
-"Alto do Cabrito",846,49.62,17051,809
-"Alto do Coqueirinho",363,32.57,11145,345
-Amaralina,869,210.67,4125,816
+"Alto das Pombas",520,136.02,3823,508
+"Alto do Cabrito",855,50.14,17051,818
+"Alto do Coqueirinho",367,32.93,11145,348
+Amaralina,870,210.91,4125,818
 "Areia Branca",88,33.92,2594,79
 Arenoso,994,59.87,16604,949
-"Arraial do Retiro",427,47.77,8938,404
-"Bairro da Paz",997,51.37,19407,946
-"Baixa de Quintas",376,176.11,2135,359
-Barbalho,964,104.48,9227,916
-Barra,2012,116.31,17298,1928
-Barreiras,1100,61.25,17960,1054
-Barris,722,149.02,4845,690
-"Beiru/Tancredo Neves",3565,70.71,50416,3436
-"Boa Viagem",293,126.18,2322,244
+"Arraial do Retiro",430,48.11,8938,407
+"Bairro da Paz",1005,51.79,19407,958
+"Baixa de Quintas",379,177.52,2135,361
+Barbalho,971,105.23,9227,925
+Barra,2022,116.89,17298,1935
+Barreiras,1111,61.86,17960,1066
+Barris,727,150.05,4845,693
+"Beiru/Tancredo Neves",3585,71.11,50416,3456
+"Boa Viagem",294,126.61,2322,245
 "Boa Vista de Brotas",41,13.83,2964,36
-"Boa Vista de Sao Caetano",1131,63.94,17688,1079
-"Boca da Mata",597,74.00,8068,573
-"Boca do Rio",3442,71.66,48032,3321
+"Boa Vista de Sao Caetano",1135,64.17,17688,1083
+"Boca da Mata",601,74.49,8068,576
+"Boca do Rio",3456,71.95,48032,3333
 "Bom Jua",94,6.05,15528,73
-Bonfim,1199,126.93,9446,1136
-Brotas,6183,88.13,70158,5952
-Cabula,3783,158.49,23869,3665
-"Cabula VI",1197,111.58,10728,1137
-"Caixa D'Agua",1863,83.00,22446,1795
+Bonfim,1204,127.46,9446,1145
+Brotas,6212,88.54,70158,5985
+Cabula,3801,159.24,23869,3684
+"Cabula VI",1201,111.95,10728,1141
+"Caixa D'Agua",1873,83.44,22446,1802
 "Cajazeiras II",93,81.79,1137,63
-"Cajazeiras IV",200,59.45,3364,193
+"Cajazeiras IV",201,59.75,3364,194
 "Cajazeiras V",289,53.30,5422,278
-"Cajazeiras VI",247,33.65,7341,234
-"Cajazeiras VII",324,71.62,4524,317
-"Cajazeiras VIII",778,59.79,13013,748
-"Cajazeiras X",646,75.88,8513,626
-"Cajazeiras XI",1216,71.96,16899,1178
-Calabar,122,18.82,6484,116
+"Cajazeiras VI",248,33.78,7341,235
+"Cajazeiras VII",328,72.50,4524,320
+"Cajazeiras VIII",780,59.94,13013,749
+"Cajazeiras X",647,76.00,8513,628
+"Cajazeiras XI",1222,72.31,16899,1186
+Calabar,123,18.97,6484,117
 Calabetao,453,62.07,7298,433
-Calcada,203,40.41,5024,193
-"Caminho das Arvores",2221,180.23,12323,2170
-"Caminho de Areia",644,52.28,12318,617
-"Campinas de Piraja",1047,89.69,11673,995
-Canabrava,1010,73.92,13664,967
-Candeal,1506,111.12,13553,1461
-Canela,583,109.20,5339,555
-Capelinha,775,48.34,16033,739
-Cassange,147,31.73,4633,130
-"Castelo Branco",2514,75.02,33510,2385
-Centro,2812,179.17,15695,2701
-"Centro Administrativo da Bahia",68,,,60
+Calcada,204,40.61,5024,194
+"Caminho das Arvores",2233,181.21,12323,2183
+"Caminho de Areia",647,52.52,12318,622
+"Campinas de Piraja",1050,89.95,11673,1001
+Canabrava,1014,74.21,13664,971
+Candeal,1515,111.78,13553,1468
+Canela,587,109.95,5339,558
+Capelinha,775,48.34,16033,740
+Cassange,149,32.16,4633,131
+"Castelo Branco",2519,75.17,33510,2398
+Centro,2830,180.31,15695,2720
+"Centro Administrativo da Bahia",70,,,62
 "Centro Historico",71,31.51,2253,69
-"Chame - Chame",283,,,267
-"Chapada do Rio Vermelho",133,6.06,21955,130
-"Cidade Nova",1418,75.74,18722,1355
+"Chame - Chame",284,,,269
+"Chapada do Rio Vermelho",134,6.10,21955,131
+"Cidade Nova",1427,76.22,18722,1359
 "Colinas de Periperi",37,,,37
-Comercio,200,148.70,1345,194
-"Cosme de Farias",2357,61.47,38341,2218
-"Costa Azul",1716,84.93,20204,1658
-Coutos,1609,61.87,26005,1495
-Curuzu,1054,63.19,16681,981
-"Dois de Julho",814,,,782
-"Dom Avelar",790,66.71,11842,752
-Doron,653,88.51,7378,636
-"Engenho Velho da Federacao",1677,68.30,24555,1601
-"Engenho Velho de Brotas",2511,97.69,25703,2414
-Engomadeira,760,60.56,12550,714
-"Fazenda Coutos",1420,58.54,24255,1366
-"Fazenda Grande do Retiro",4404,81.85,53806,4179
-"Fazenda Grande I",459,40.06,11459,427
-"Fazenda Grande II",960,52.87,18159,922
-"Fazenda Grande III",331,44.35,7464,318
-"Fazenda Grande IV",328,68.71,4774,316
-Federacao,3710,102.03,36362,3555
-Garcia,1316,92.81,14180,1256
-Graca,1766,95.70,18454,1687
-"Granjas Rurais Presidente Vargas",152,76.08,1998,146
-"Horto Florestal",992,,,975
-IAPI,2186,89.40,24452,2076
-"Ilha Amarela",387,,,367
+Comercio,201,149.44,1345,194
+"Cosme de Farias",2368,61.76,38341,2235
+"Costa Azul",1730,85.63,20204,1673
+Coutos,1621,62.33,26005,1508
+Curuzu,1059,63.49,16681,988
+"Dois de Julho",817,,,784
+"Dom Avelar",794,67.05,11842,757
+Doron,657,89.05,7378,639
+"Engenho Velho da Federacao",1682,68.50,24555,1610
+"Engenho Velho de Brotas",2520,98.04,25703,2425
+Engomadeira,763,60.80,12550,718
+"Fazenda Coutos",1426,58.79,24255,1371
+"Fazenda Grande do Retiro",4424,82.22,53806,4198
+"Fazenda Grande I",460,40.14,11459,430
+"Fazenda Grande II",967,53.25,18159,928
+"Fazenda Grande III",331,44.35,7464,320
+"Fazenda Grande IV",331,69.33,4774,317
+Federacao,3728,102.52,36362,3572
+Garcia,1319,93.02,14180,1258
+Graca,1773,96.08,18454,1698
+"Granjas Rurais Presidente Vargas",154,77.08,1998,148
+"Horto Florestal",995,,,978
+IAPI,2200,89.97,24452,2094
+"Ilha Amarela",392,,,370
 "Ilha de Bom Jesus dos Passos",177,120.82,1465,177
-"Ilha de Mare",217,51.23,4236,209
-"Ilha dos Frades",55,75.03,733,52
-Imbui,3393,127.84,26540,3294
-Itacaranha,1108,68.87,16088,1040
-Itaigara,1761,161.95,10874,1700
-Itapua,5119,76.45,66961,4914
-Itinga,333,27.86,11951,318
-"Jardim Armacao",1669,551.74,3025,1625
-"Jardim Cajazeiras",478,63.13,7572,449
-"Jardim das Margaridas",1123,244.56,4592,1088
-"Jardim Nova Esperanca",1041,74.31,14008,1009
-"Jardim Santo Inacio",681,78.55,8670,649
+"Ilha de Mare",221,52.17,4236,213
+"Ilha dos Frades",56,76.40,733,54
+Imbui,3419,128.82,26540,3315
+Itacaranha,1115,69.31,16088,1046
+Itaigara,1773,163.05,10874,1712
+Itapua,5149,76.90,66961,4934
+Itinga,339,28.37,11951,325
+"Jardim Armacao",1676,554.05,3025,1636
+"Jardim Cajazeiras",481,63.52,7572,453
+"Jardim das Margaridas",1125,244.99,4592,1089
+"Jardim Nova Esperanca",1045,74.60,14008,1015
+"Jardim Santo Inacio",682,78.66,8670,650
 Lapinha,115,22.98,5004,110
-Liberdade,4077,97.53,41802,3883
-Lobato,2520,86.39,29169,2394
-"Luiz Anselmo",918,79.81,11503,884
-Macaubas,484,56.57,8556,459
-"Marechal Rondon",1125,57.78,19470,1062
-Mares,155,65.71,2359,141
-Massaranduba,1591,78.92,20160,1490
-"Mata Escura",2535,78.36,32349,2472
-Matatu,1345,127.58,10542,1290
-"Mirantes de Periperi",149,,,144
-"Monte Serrat",483,73.29,6590,468
+Liberdade,4097,98.01,41802,3901
+Lobato,2530,86.74,29169,2403
+"Luiz Anselmo",924,80.33,11503,890
+Macaubas,488,57.04,8556,459
+"Marechal Rondon",1128,57.94,19470,1063
+Mares,158,66.98,2359,144
+Massaranduba,1596,79.17,20160,1495
+"Mata Escura",2535,78.36,32349,2477
+Matatu,1351,128.15,10542,1297
+"Mirantes de Periperi",150,,,145
+"Monte Serrat",484,73.44,6590,469
 "Moradas da Lagoa",14,.86,16189,13
-Mussurunga,1852,60.06,30838,1750
-Narandiba,874,60.83,14368,852
-Nazare,1424,113.28,12571,1329
-"Nordeste de Amaralina",2465,112.62,21887,2373
-"Nova Brasilia",2068,123.71,16716,1979
+Mussurunga,1861,60.35,30838,1761
+Narandiba,882,61.39,14368,858
+Nazare,1432,113.91,12571,1339
+"Nordeste de Amaralina",2472,112.94,21887,2380
+"Nova Brasilia",2076,124.19,16716,1989
 "Nova Constituinte",44,4.68,9410,43
-"Nova Esperanca",426,63.28,6732,412
+"Nova Esperanca",429,63.73,6732,414
 "Nova Sussuarana",150,12.29,12206,140
-"Novo Horizonte",637,49.18,12952,617
+"Novo Horizonte",642,49.57,12952,623
 "Novo Marotinho",155,36.57,4238,149
-Ondina,1530,75.38,20298,1456
-Palestina,278,46.28,6007,256
-Paripe,3350,60.87,55039,3192
-Patamares,2278,370.05,6156,2250
-"Pau da Lima",1974,79.94,24693,1873
-"Pau Miudo",2171,104.68,20740,2040
-Periperi,2787,59.07,47179,2547
-Pernambues,6595,101.49,64983,6387
-"Pero Vaz",1591,72.14,22054,1501
-Piata,2193,191.68,11441,2137
-Piraja,2696,80.86,33341,2577
-Pituacu,1647,110.68,14881,1594
-Pituba,7193,110.39,65160,6991
-Plataforma,2848,83.68,34034,2663
+Ondina,1542,75.97,20298,1468
+Palestina,278,46.28,6007,257
+Paripe,3379,61.39,55039,3221
+Patamares,2293,372.48,6156,2267
+"Pau da Lima",1988,80.51,24693,1887
+"Pau Miudo",2189,105.54,20740,2058
+Periperi,2801,59.37,47179,2559
+Pernambues,6611,101.73,64983,6410
+"Pero Vaz",1598,72.46,22054,1506
+Piata,2202,192.47,11441,2146
+Piraja,2707,81.19,33341,2589
+Pituacu,1649,110.81,14881,1597
+Pituba,7243,111.16,65160,7037
+Plataforma,2866,84.21,34034,2682
 "Porto Seco Piraja",11,152.78,72,10
-"Praia Grande",819,134.46,6091,779
-Resgate,547,81.54,6708,529
-Retiro,143,545.80,262,138
-Ribeira,1811,92.50,19578,1715
-"Rio Sena",832,50.80,16379,789
-"Rio Vermelho",2447,133.47,18334,2367
-Roma,274,75.36,3636,247
-Saboeiro,924,138.28,6682,896
-"Santa Cruz",3717,137.24,27083,3592
+"Praia Grande",824,135.28,6091,784
+Resgate,554,82.59,6708,537
+Retiro,143,545.80,262,139
+Ribeira,1821,93.01,19578,1728
+"Rio Sena",838,51.16,16379,794
+"Rio Vermelho",2462,134.29,18334,2381
+Roma,277,76.18,3636,249
+Saboeiro,935,139.93,6682,906
+"Santa Cruz",3722,137.43,27083,3599
 "Santa Luzia",19,2.47,7702,18
-"Santa Monica",467,63.20,7389,452
+"Santa Monica",471,63.74,7389,457
 "Santo Agostinho",19,3.96,4796,16
-"Santo Antonio",319,76.50,4170,289
-"Sao Caetano",3044,59.50,51159,2869
-"Sao Cristovao",3798,70.46,53906,3642
-"Sao Goncalo",1082,62.63,17275,1050
-"Sao Joao do Cabrito",298,14.00,21284,277
-"Sao Marcos",4025,140.78,28591,3899
+"Santo Antonio",321,76.98,4170,292
+"Sao Caetano",3052,59.66,51159,2879
+"Sao Cristovao",3810,70.68,53906,3657
+"Sao Goncalo",1087,62.92,17275,1057
+"Sao Joao do Cabrito",299,14.05,21284,278
+"Sao Marcos",4058,141.93,28591,3936
 "Sao Rafael",128,4.96,25790,106
-"Sao Tome",355,49.26,7207,334
+"Sao Tome",358,49.67,7207,338
 Saramandaia,248,22.00,11272,235
 Saude,320,51.35,6232,305
-"Sete de Abril",1167,64.07,18215,1117
-"Stella Maris",2269,109.93,20641,2207
-STIEP,1186,86.91,13646,1150
-Sussuarana,2785,96.67,28809,2666
-Tororo,462,97.94,4717,444
-Trobogy,728,101.70,7158,715
-Uruguai,2343,77.15,30370,2205
+"Sete de Abril",1176,64.56,18215,1127
+"Stella Maris",2281,110.51,20641,2217
+STIEP,1195,87.57,13646,1160
+Sussuarana,2797,97.09,28809,2681
+Tororo,467,99.00,4717,448
+Trobogy,731,102.12,7158,719
+Uruguai,2404,79.16,30370,2269
 "Vale das Pedrinhas",265,51.34,5162,254
 "Vale dos Lagos",140,10.89,12860,134
-Valeria,1462,55.78,26210,1364
-"Vila Canaria",896,79.87,11218,864
-"Vila Laura",1699,116.98,14524,1650
-"Vila Ruy Barbosa/Jardim Cruzeiro",1347,69.26,19448,1274
-"Vista Alegre",120,,,117
-Vitoria,563,107.75,5225,544
+Valeria,1514,57.76,26210,1418
+"Vila Canaria",897,79.96,11218,867
+"Vila Laura",1713,117.94,14524,1669
+"Vila Ruy Barbosa/Jardim Cruzeiro",1369,70.39,19448,1288
+"Vista Alegre",121,,,119
+Vitoria,566,108.33,5225,545
