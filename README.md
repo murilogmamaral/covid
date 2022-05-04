@@ -1,6 +1,12 @@
-## Mapa da Covid-19 em Salvador, Bahia.
+## Covid-19 situation in Salvador, Bahia, Brazil  
 
-Este Shiny App traz um mapa da Covid-19 em Salvador, Bahia, com estatísticas por bairro.
-A fonte de dados é o [site da Secretaria Municipal de Saúde](http://www.saude.salvador.ba.gov.br/covid/indicadorescovid/).
-A camada dos bairros foi importada do repositório
-[CleitonOERocha/Shapefiles](https://github.com/CleitonOERocha/Shapefiles). Adoraria receber sugestões para melhorar o desempenho ou a experiência de uso do aplicativo. Também estou aberto a correções na apresentação dos dados.
+### Description
+This Shiny App presents statistics on Covid-19 situation in Salvador, Bahia, with details by neighborhood.  
+<br>
+### Usage
+Go to [https://academia.shinyapps.io/covid/](https://academia.shinyapps.io/covid/) to see the deployed app.  
+Or download all files, run the _covid.Rproj_ file and run the _app.R_ in your RStudio.  
+<br>
+### References  
+The data source is [the website of the Municipal Secretary of Health](http://www.saude.salvador.ba.gov.br/covid/indicadorescovid/).  
+The layers were imported from the repository [CleitonOERocha/Shapefiles](https://github.com/CleitonOERocha/Shapefiles).  
